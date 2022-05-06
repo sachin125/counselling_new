@@ -1,0 +1,52 @@
+<div layout="row">
+	<div layout-padding layout-xs="column" layout="column" flex="100" style="background-color: #fff;margin: 5px;">
+		
+		 <div layout="row" ng-if="!userAOWrapperCount">
+			 Data not available
+		 </div>
+		 <div layout="row" ng-if="userAOWrapperCount">
+			<label>About {{userAOWrapperCount}} results</label>
+		  </div>
+		 <div layout="row" >
+			 <md-content class="md-padding" flex>
+				 <div layout="column">
+					<table flex class="tableWidthAndBorder">
+						<tr class="bottom-border">
+							<td><label>Code:</label> </td>
+							<td><label>Name:</label> </td>
+							<td><label>Total seat:</label> </td>
+							<td><label>Allocated seat:</label> </td>
+							<td><label>Free Seat:</label> </td>
+							<!-- <td><label>Contact:</label> </td>
+							<td><label>Address:</label> </td> -->
+							<td><label>Action:</label> </td>
+						</tr>	
+						<tr class="bottom-border" ng-repeat="college in collegeList">
+							<td><label>{{college.code}}</label> </td>
+							<td><label>{{college.name}}</label> </td>
+							<td><label>{{college.totalSeat}}</label> </td>
+							<td><label>{{college.allocated}}</label> </td>
+							<td><label>{{college.freeseat}}</label> </td>
+							<!-- <td><label>{{college.contactno}}</label> </td>
+							<td><label>{{college.address}}</label> </td> -->
+							<td>
+								<md-card-actions layout="row">
+								<!-- <td> -->
+									<md-button ng-click="viewProfile(college.id);">
+									<md-icon aria-label="View Profile" class="zmdi zmdi-info"></md-icon>View more
+								</md-button>
+								<!-- </td> -->
+								<!-- <td> -->
+									<md-button ng-click="deleteWish(college.id);">
+									<md-icon aria-label="Remove from cart" class="zmdi zmdi-pocket"></md-icon>Remove
+									</md-button>
+								<!-- </td> -->
+							</md-card-actions>
+						</td>
+						</tr>
+					</table>
+				 </div>
+			 </md-content>
+		 </div>
+	</div>
+</div>

@@ -1,0 +1,25 @@
+(function() {
+  'use strict';
+
+  angular.module('app.core')
+  .service('HomeServiceCore', HomeServiceCore);
+
+	HomeServiceCore.$inject = [ '$translate', '$resource', '$http','$filter', 'UrlConstantsCore', 'GlobalConstantsCore','$rootScope','$state','IndexServiceCore','UrlConstantsCommon','GlobalValuesCore'];
+
+  function HomeServiceCore($translate, $resource, $http,$filter, UrlConstantsCore, GlobalConstantsCore,$rootScope,$state,IndexServiceCore,UrlConstantsCommon,GlobalValuesCore) {
+
+	var service = {
+        search: search,        
+    };
+    return service;
+
+    function search(url){
+		if($filter('HasValueFilterCore')(url)){
+			var promise = IndexServiceCore.sendGETRequest(url);
+			console.log('promise: ',promise);
+			return promise;
+		}
+    }
+
+  }
+})();

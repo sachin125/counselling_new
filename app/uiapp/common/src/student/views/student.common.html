@@ -1,0 +1,56 @@
+<div layout="row" flex="100">
+   <div layout-padding layout-xs="column" layout="column" flex="100" style="background-color: #fff;margin: 5px;">
+		<div ng-if="collegeStudentList.length==0">No data</div>
+		<div layout="row"  >
+			<md-content class="md-padding" flex>
+				<div layout="row">
+					<table flex class="tableWidthAndBorder">
+						<tr class="bottom-border">
+							<td><label>Roll No</label> </td>
+							<td><label>First Name</label> </td>
+							<td><label>Last Name</label> </td>
+							<td><label>Physics</label> </td>
+							<td><label>Chemistry</label> </td>
+							<td><label>Maths</label> </td>
+							<td><label>Gender</label> </td>
+							<td><label>Approved</label> </td>
+							<!-- <td><label>Contact:</label> </td>
+							<td><label>Address:</label> </td> -->
+							<td><label>Action:</label> </td>
+						</tr>	
+						<tr class="bottom-border" ng-repeat="collegeStudent in collegeStudentList">
+							<td><label>{{collegeStudent.student.rollno}}</label> </td>
+							<td><label>{{collegeStudent.student.firstname}}</label> </td>
+							<td><label>{{collegeStudent.student.lastname}}</label> </td>
+							<td><label>{{collegeStudent.student.physics}}</label> </td>
+							<td><label>{{collegeStudent.student.chemistry}}</label> </td>
+							<td><label>{{collegeStudent.student.maths}}</label> </td>
+							<td><label>{{collegeStudent.student.gender}}</label> </td>
+							<td>
+								<span ng-if="collegeStudent.approved" style="color:blue">Yes</span>
+								<span ng-if="!collegeStudent.approved" >No</span>
+							<!-- <td><label>{{student.contactno}}</label> </td>
+							<td><label>{{student.address}}</label> </td> -->
+							<td>
+								<md-card-actions layout="row">
+									<!-- <md-button ng-click="viewProfile(collegeStudent.id);">
+										<md-icon aria-label="View More" class="zmdi zmdi-info"></md-icon>View more
+									</md-button> -->
+									<md-button ng-click="approve(collegeStudent.id);" ng-disabled="collegeStudent.approved">
+										<md-icon aria-label="Approve" class="zmdi zmdi-pocket"></md-icon>Approve
+									</md-button>
+									<md-button ng-click="reject(collegeStudent.id);">
+										<md-icon aria-label="Reject" class="zmdi zmdi-pocket"></md-icon>Reject
+									</md-button>
+								<!-- </td> -->
+							</md-card-actions>
+						</td>
+						</tr>
+					</table>
+				</div>
+			</md-content>
+		</div>
+	</div>
+  </div>
+  
+</div>

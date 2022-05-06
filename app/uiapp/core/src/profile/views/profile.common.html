@@ -1,0 +1,208 @@
+<style>
+.active {
+  background-color: #ccc;
+}
+
+.left-align{
+text-align: left;	
+}
+.bottom-border { border-bottom: 1px solid grey; height: 50px;}
+.tableWidthAndBorder{ width:100%; border-collapse: collapse;}
+
+</style>
+<div layout="column" flex="100">
+	<div>
+		<div flex layout="row">
+				<md-card class="sd-card" layout="column" layout-align="start stretch" flex="100">
+				<div class="wrapper"  flex>	
+					<md-content layout-padding flex class="content">
+<!--
+						Account Info
+-->
+						<div >
+							<form name="Account_Info_form" id="Account_Info_form">
+							<div flex layout="row">
+								<h3 flex>Account Info</h3>
+								<md-button md-no-ink class="md-primary" ng-click="editProfile('IsAccountInformationEditable');" ng-if="!IsAccountInformationEditable">Edit</md-button>
+								<div ng-if="IsAccountInformationEditable">
+									<md-button md-no-ink class="md-primary" ng-click="cancelEditProfile('IsAccountInformationEditable');">Cancel</md-button>
+									<md-button md-no-ink class="md-primary" ng-click="saveProfile('IsAccountInformationEditable');" ng-disabled="Account_Info_form.$invalid">Save</md-button>
+								</div>
+							</div>
+								<table flex class="tableWidthAndBorder">
+										<tr class="bottom-border">
+											<td><label>Roll No:</label> </td>
+											<td>
+												<div ng-if="!IsAccountInformationEditable">
+													{{readOnlyUserWithAssociateObjectWrapper.rollno}}
+												</div>
+												<div ng-if="IsAccountInformationEditable">
+													 <md-input-container class="md-block" flex>
+														<label>Roll No</label>
+														<input ng-model="editUserWithAssociateObjectWrapper.rollno" >
+													</md-input-container>
+												</div>
+											</td>
+										</tr>
+										<tr class="bottom-border">
+											<td><label>Name:</label> </td>
+											<td>
+												<div ng-if="!IsAccountInformationEditable">
+													{{readOnlyUserWithAssociateObjectWrapper.firstname}} {{readOnlyUserWithAssociateObjectWrapper.lastname}}
+												</div>
+												<div ng-if="IsAccountInformationEditable">
+													 <md-input-container class="md-block" flex>
+														<label>FirstName</label>
+														<input ng-model="editUserWithAssociateObjectWrapper.firstname" >
+													</md-input-container>
+													 <md-input-container class="md-block" flex>
+														<label>Lastname</label>
+														<input ng-model="editUserWithAssociateObjectWrapper.lastname" >
+													</md-input-container>
+												</div>
+											</td>
+										</tr>
+										<tr class="bottom-border">
+											<td><label>DOB:</label> </td>
+											<td>
+												<div ng-if="!IsAccountInformationEditable">
+													
+													{{readOnlyUserWithAssociateObjectWrapper.dob | date:'MMM d, y h:mm:ss a'}}
+												</div>
+												<div ng-if="IsAccountInformationEditable">
+													 <md-input-container class="md-block" flex>
+														<label>Dob</label>
+														<input mdc-datetime-picker="" date="true" time="true" type="text" id="datetimeauto" placeholder="Date" show-todays-date="" minutes="true" min-date="date" auto-ok="true" short-time="true" ng-model="editUserWithAssociateObjectWrapper.dob" class="md-input">
+<!--
+														<input ng-model="user.dob" >
+-->
+													</md-input-container>
+												</div>
+											</td>
+										</tr>
+										<tr class="bottom-border">
+											<td><label>Contactno:</label> </td>
+											<td>
+												<div ng-if="!IsAccountInformationEditable">
+													{{readOnlyUserWithAssociateObjectWrapper.contactno || "--"}}
+												</div>
+												<div ng-if="IsAccountInformationEditable">
+													 <md-input-container class="md-block" flex>
+														<label>ContactNo</label>
+														<input ng-model="editUserWithAssociateObjectWrapper.contactno" >
+													</md-input-container>
+												</div>
+											</td>
+										</tr>
+										<tr class="bottom-border">
+											<td><label>Email ID:</label> </td>
+											<td>
+												<div ng-if="!IsAccountInformationEditable">
+													{{readOnlyUserWithAssociateObjectWrapper.user.username || "--"}}
+												</div>
+												<div ng-if="IsAccountInformationEditable">
+													
+													 <md-input-container class="md-block" flex>
+														<label>Emailid</label>
+														<input ng-model="editUserWithAssociateObjectWrapper.user.username" >
+													</md-input-container>
+												</div>
+											</td>
+										</tr>
+										<tr class="bottom-border">
+											<td><label>Physics:</label> </td>
+											<td>
+												<div ng-if="!IsAccountInformationEditable">
+													{{readOnlyUserWithAssociateObjectWrapper.physics || "--"}}
+												</div>
+												<div ng-if="IsAccountInformationEditable">
+													
+													 <md-input-container class="md-block" flex>
+														<label>Physics</label>
+														<input ng-model="editUserWithAssociateObjectWrapper.physics" >
+													</md-input-container>
+												</div>
+											</td>
+										</tr>
+										<tr class="bottom-border">
+											<td><label>Chemistry:</label> </td>
+											<td>
+												<div ng-if="!IsAccountInformationEditable">
+													{{readOnlyUserWithAssociateObjectWrapper.chemistry || "--"}}
+												</div>
+												<div ng-if="IsAccountInformationEditable">
+													
+													 <md-input-container class="md-block" flex>
+														<label>Chemistry</label>
+														<input ng-model="editUserWithAssociateObjectWrapper.chemistry" >
+													</md-input-container>
+												</div>
+											</td>
+										</tr>
+										<tr class="bottom-border">
+											<td><label>Maths:</label> </td>
+											<td>
+												<div ng-if="!IsAccountInformationEditable">
+													{{readOnlyUserWithAssociateObjectWrapper.maths || "--"}}
+												</div>
+												<div ng-if="IsAccountInformationEditable">
+													
+													 <md-input-container class="md-block" flex>
+														<label>Maths</label>
+														<input ng-model="editUserWithAssociateObjectWrapper.maths" >
+													</md-input-container>
+												</div>
+											</td>
+										</tr>
+										
+										<!-- <tr class="bottom-border" ng-if="IsAccountInformationEditable">
+											<td><label>Current Password:</label> </td>
+											<td>
+												{{editUserWithAssociateObjectWrapper.user.checksum}}
+												 <md-input-container class="md-block" flex>
+													<label>Password</label>
+													<input type="password" ng-model="editUserWithAssociateObjectWrapper.user.checksum" ng-required="true">
+												</md-input-container>
+											</td>
+										</tr> -->
+										<table flex class="tableWidthAndBorder">
+											<tr class="bottom-border">
+												<td><label>Current Location:</label> </td>
+												<td>
+													<div ng-if="!IsAccountInformationEditable" layout-align="start">
+														<span>{{readOnlyUserWithAssociateObjectWrapper.address.name}}, {{readOnlyUserWithAssociateObjectWrapper.address.city}} {{readOnlyUserWithAssociateObjectWrapper.address.state}} {{readOnlyUserWithAssociateObjectWrapper.address.country}} {{readOnlyUserWithAssociateObjectWrapper.address.pincode}} </span>
+													</div>
+													<div ng-if="IsAccountInformationEditable">
+														<md-input-container class="md-block" flex>
+															<label>Area</label>
+															<input ng-model="editUserWithAssociateObjectWrapper.address.name" >
+														</md-input-container>
+														<md-input-container class="md-block" flex>
+															<label>City</label>
+															<input ng-model="editUserWithAssociateObjectWrapper.address.city" >
+														</md-input-container>
+														<md-input-container class="md-block" flex>
+															<label>Pincode</label>
+															<input ng-model="editUserWithAssociateObjectWrapper.address.pincode" >
+														</md-input-container>
+														<md-input-container class="md-block" flex>
+															<label>State</label>
+															<input ng-model="editUserWithAssociateObjectWrapper.address.state" >
+														</md-input-container>
+														<md-input-container class="md-block" flex>
+															<label>Country</label>
+															<input ng-model="editUserWithAssociateObjectWrapper.address.country" >
+														</md-input-container>
+													</div>
+												</td>
+											</tr>
+									</table>
+								</table>
+							</form>
+						</div>
+					</md-content>
+				</div>
+			</md-card>	
+		</div>
+	</div>
+</div>

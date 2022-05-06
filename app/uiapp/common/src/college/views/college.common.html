@@ -1,0 +1,73 @@
+<div layout="row" flex="100">
+   <div layout-padding layout-xs="column" layout="column" flex="100" style="background-color: #fff;margin: 5px;">
+		<div ng-if="collegeList.length==0">No data</div>
+		<div layout="row"  >
+			<md-content class="md-padding" flex>
+				<div layout="row">
+					<table flex class="tableWidthAndBorder">
+						<tr class="bottom-border">
+							<td><label>Code:</label> </td>
+							<td><label>Name:</label> </td>
+							<td><label>Total seat:</label> </td>
+							<td><label>Allocated seat:</label> </td>
+							<td><label>Free Seat:</label> </td>
+							<!-- <td><label>Contact:</label> </td>
+							<td><label>Address:</label> </td> -->
+							<td><label>Action:</label> </td>
+						</tr>	
+						<tr class="bottom-border" ng-repeat="college in collegeList">
+							<td><label>{{college.code}}</label> </td>
+							<td><label>{{college.name}}</label> </td>
+							<td><label>{{college.totalSeat}}</label> </td>
+							<td><label>{{college.allocated}}</label> </td>
+							<td><label>{{college.freeseat}}</label> </td>
+							<!-- <td><label></label> </td>
+							<td><label>{{college.address}}</label> </td> -->
+							<td>
+								<md-card-actions layout="row">
+								<!-- <td> -->
+									<md-button ng-click="viewProfile(college.id);">
+									<md-icon aria-label="View Profile" class="zmdi zmdi-info"></md-icon>View more
+								</md-button>
+								<!-- </td> -->
+								<!-- <td> -->
+									<md-button ng-click="addToWish(college.id);">
+									<md-icon aria-label="Add to WishList" class="zmdi zmdi-pocket"></md-icon>Add
+									</md-button>
+								<!-- </td> -->
+							</md-card-actions>
+							<div ng-if="IsViewMore">
+								<div>contactno: {{college.contactno}}</div>
+								<div>Address: {{college.address.name}}, {{college.address.city}} {{college.address.state}} {{college.address.country}} {{college.address.pincode}} </div>
+							</div>
+						</td>
+						</tr>
+					</table>	
+					<!-- <md-card md-theme="default" md-theme-watch>
+						<md-card-title>
+						<md-card-title-text>
+							<span class="md-headline">: {{college.code}}</span>
+							<span class="md-subhead">Name: {{college.}}</span>
+							<span class="md-subhead">: {{college.}}</span>
+							<span class="md-subhead"> seat: {{college.}}</span>
+							<span class="md-subhead"> seat: {{college.}}</span>
+							<span class="md-subhead">: {{college.}}</span>
+							<span class="md-subhead">: {{college.}} </span>
+						</md-card-title-text>
+						</md-card-title>
+						<md-card-actions layout="row" layout-align="end center">
+							<md-button ng-click="viewProfile(college.id);">
+								<md-icon aria-label="View Profile" class="zmdi zmdi-info"></md-icon>View College details
+							</md-button>
+							<md-button ng-click="addToWish(college.id);">
+								<md-icon aria-label="Add to WishList" class="zmdi zmdi-pocket"></md-icon>Add
+							</md-button>
+						</md-card-actions>
+					</md-card> -->
+				</div>
+			</md-content>
+		</div>
+	</div>
+  </div>
+  
+</div>
